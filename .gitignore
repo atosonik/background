@@ -1,0 +1,31 @@
+# Leading slashes matter here. An unanchored "models/" would also match
+# parts/insightface/models/buffalo_l/, silently dropping 198 model parts from
+# the repo and leaving a clone that cannot rebuild the models at all.
+
+/.venv/
+/venv/
+
+__pycache__/
+*.py[cod]
+
+# PyInstaller build tree. The exe itself ships as runableparts/, not as a blob.
+/build/
+/dist/
+
+# Swap results. testdata/t1.jpg is CC BY-SA, so anything derived from it
+# inherits that licence; keeping outputs out avoids relicensing the project.
+/outputs/
+
+# Assembled models. The repo carries parts/ instead -- run:
+#   python chunker.py merge
+/models/
+
+# PyInstaller generates .spec files, but FaceSwap.spec is hand-written and the
+# README tells people to build from it, so it is tracked.
+*.spec
+!FaceSwap.spec
+
+# Test photos pulled from Wikimedia Commons. Local-only: several are CC BY-SA,
+# so a swap result derived from one would inherit that licence. Use your own
+# photos here instead -- see samples/ATTRIBUTION.md for what was downloaded.
+/samples/

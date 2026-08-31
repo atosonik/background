@@ -1,0 +1,7 @@
+# Verified working together on Windows 11 / Python 3.12 (CPU).
+# No PyTorch anywhere -- the whole pipeline is onnxruntime.
+numpy>=2.0
+opencv-python>=4.10
+onnxruntime==1.22.0          # -> onnxruntime-gpu==1.22.0 for CUDA 12 + cuDNN 9
+insightface==0.7.3
+PyQt5==5.15.11

@@ -1,0 +1,19 @@
+# core.autocrlf=true rewrites line endings in anything git decides is text.
+# Chunker parts are raw slices of a model or an .exe: if one ever got treated as
+# text, git would rewrite CRLF inside it and the part would fail its SHA-256 on
+# the next clone -- a corruption that only shows up on someone else's machine.
+# Git's heuristic (does it contain a NUL byte?) happens to classify every current
+# part as binary, but that is luck, not a guarantee. Pin it.
+*.bin binary
+manifest.json text eol=lf
+
+# Source stays plain text with LF, so hashes and diffs are stable across OSes.
+*.py text eol=lf
+*.spec text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+.gitignore text eol=lf
+
+# Test images are binary.
+*.jpg binary
+*.png binary
